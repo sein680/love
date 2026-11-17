@@ -1,0 +1,1058 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#FFF8F0">
+  <meta name="description" content="우리 둘만 주고받는 작은 편지함">
+  <meta property="og:title" content="💌 둘만의 우체통">
+  <meta property="og:description" content="편지가 도착했어요. 눌러서 열어보세요.">
+  <meta property="og:type" content="website">
+  <title>둘만의 우체통</title>
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0Ij4KICA8cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxOCIgZmlsbD0iI0Y2QTlCOCIvPgogIDxyZWN0IHg9IjEzIiB5PSIxOSIgd2lkdGg9IjM4IiBoZWlnaHQ9IjI3IiByeD0iNSIgZmlsbD0iI2ZmZiIvPgogIDxwYXRoIGQ9Ik0xNSAyMmwxNyAxMyAxNy0xMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRjZBOUI4IiBzdHJva2Utd2lkdGg9IjMuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+CiAgPHBhdGggZD0iTTMyIDQxYy00LTMtNi01LTYtN2EzIDMgMCAwIDEgNi0xIDMgMyAwIDAgMSA2IDFjMCAyLTIgNC02IDd6IiBmaWxsPSIjQzQ1Qzc5Ii8+Cjwvc3ZnPgo=">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap">
+  <style>
+/* ───────── 둘만의 우체통 ───────── */
+:root {
+  --cream: #FFF8F0;
+  --cream-2: #FCEFE4;
+  --paper: #FFFDFA;
+  --ink: #4B3A36;
+  --ink-soft: #7C6862;
+  --ink-faint: #A8958E;
+  --peach: #FFD9C7;
+  --peach-2: #F7B9A1;
+  --pink: #F6A9B8;
+  --pink-soft: #FDE4EA;
+  --pink-line: #F3CBD3;
+  --accent: #C45C79;
+  --accent-hover: #A94B66;
+  --accent-text: #B4506D;
+  --danger: #C0475E;
+  --line: #F0E1D6;
+  --radius: 20px;
+  --shadow: 0 10px 28px -14px rgba(160, 90, 80, .35);
+  --shadow-sm: 0 4px 14px -8px rgba(160, 90, 80, .35);
+  --font: 'Gowun Dodum', 'Pretendard', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; min-height: 100vh; font-family: var(--font); color: var(--ink); line-height: 1.65;
+  background: var(--cream);
+  background-image: radial-gradient(circle at 15% 0%, #FFE9DF 0, transparent 40%), radial-gradient(circle at 100% 30%, #FDE6EC 0, transparent 35%);
+  background-attachment: fixed;
+  word-break: keep-all; overflow-wrap: anywhere;
+}
+button, input, textarea { font: inherit; color: inherit; }
+a { color: var(--accent-text); }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--pink); outline-offset: 3px; border-radius: 10px; }
+h1, h2, h3 { font-weight: 400; margin: 0; line-height: 1.35; }
+h1 { font-size: 24px; } h2 { font-size: 20px; } .h3 { font-size: 17px; }
+.muted { color: var(--ink-soft); } .small { font-size: 13px; } .center { text-align: center; }
+.stack > * + * { margin-top: 14px; }
+.stack > .btn { width: 100%; }
+.row { display: flex; gap: 10px; align-items: center; } .grow { flex: 1; }
+
+.app { max-width: 520px; margin: 0 auto; min-height: 100vh; padding: 0 16px calc(28px + env(safe-area-inset-bottom)); }
+
+/* ── 상단 바 ── */
+.topbar { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; gap: 8px; padding: 10px 16px; margin: 0 -16px;
+  background: rgba(255, 248, 240, .88); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.brand { flex: 1; display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); font-size: 16px; }
+.brand-dot { width: 26px; height: 26px; border-radius: 8px; background: var(--pink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='4' y='7' width='16' height='11' rx='2' fill='%23fff'/%3E%3Cpath d='M5 8l7 5 7-5' fill='none' stroke='%23F6A9B8' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E") center/100% no-repeat; }
+.back, .icon-link { width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--paper);
+  display: grid; place-items: center; font-size: 22px; color: var(--ink-soft); text-decoration: none; cursor: pointer; line-height: 1; }
+.back[aria-hidden="true"] { visibility: hidden; }
+.icon-link { font-size: 18px; }
+
+/* ── 공통 부품 ── */
+.view { animation: fadeUp .35s ease both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.center-view { min-height: 70vh; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center; }
+.center-text { text-align: center; padding: 20px 0 6px; word-break: keep-all; }
+.center-text > * + * { margin-top: 8px; }
+.center-text p { text-wrap: balance; }
+.page-title { font-size: 22px; margin: 6px 0 14px; }
+.big-emoji { font-size: 48px; }
+.card { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow-sm); margin-top: 14px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 50px; padding: 0 20px;
+  border-radius: 999px; border: 0; cursor: pointer; text-decoration: none; font-size: 16px; transition: transform .1s, background .2s; }
+.btn:active { transform: scale(.98); }
+.btn:disabled { opacity: .55; cursor: default; }
+.btn-primary { background: var(--accent); color: #fff; box-shadow: var(--shadow-sm); }
+.btn-primary:hover { background: var(--accent-hover); }
+.btn-ghost { background: var(--paper); color: var(--ink); border: 1.5px solid var(--pink-line); }
+.btn-ghost:hover { border-color: var(--pink); }
+.btn-sm { min-height: 42px; font-size: 14px; padding: 0 16px; }
+.link-btn { background: none; border: 0; color: var(--ink-faint); text-decoration: underline; cursor: pointer; font-size: 14px; padding: 12px; }
+.center-block { display: block; margin: 10px auto 0; text-align: center; }
+.field { display: block; } .field > span { display: block; font-size: 14px; color: var(--ink-soft); margin-bottom: 6px; }
+.input { width: 100%; min-height: 50px; border: 1.5px solid var(--line); border-radius: 14px; padding: 0 14px; background: #fff; font-size: 16px; }
+.input:focus { outline: none; border-color: var(--pink); box-shadow: 0 0 0 3px var(--pink-soft); }
+.error-box { background: #FDECEF; color: var(--danger); border-radius: 12px; padding: 10px 14px; font-size: 14px; white-space: pre-line; }
+.notice { background: var(--pink-soft); border-radius: 14px; padding: 12px 14px; font-size: 14px; white-space: pre-line; }
+.notice .btn { margin-top: 8px; width: 100%; }
+.empty, .empty-state { text-align: center; color: var(--ink-soft); }
+.empty-state { padding: 40px 10px; } .empty-state > * + * { margin-top: 12px; }
+
+.seg { display: flex; background: var(--cream-2); border-radius: 999px; padding: 4px; margin-bottom: 16px; }
+.seg button { flex: 1; border: 0; background: transparent; border-radius: 999px; min-height: 40px; cursor: pointer; color: var(--ink-soft); }
+.seg button[aria-selected="true"] { background: #fff; color: var(--accent-text); box-shadow: var(--shadow-sm); }
+.seg-sm button { min-height: 36px; font-size: 14px; }
+
+.toast { position: fixed; left: 50%; bottom: calc(24px + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 50;
+  background: var(--ink); color: #fff; padding: 12px 18px; border-radius: 999px; font-size: 14px; max-width: calc(100% - 32px); text-align: center; }
+.dialog { border: 0; border-radius: 22px; padding: 22px; width: min(92vw, 380px); background: var(--paper); color: var(--ink); box-shadow: var(--shadow); }
+.dialog > * + * { margin-top: 14px; }
+.dialog::backdrop { background: rgba(75, 58, 54, .35); }
+
+/* ── 작은 우체통 ── */
+.mini-box { width: 64px; height: 72px; border-radius: 32px 32px 10px 10px; background: var(--pink); position: relative; margin: 0 auto; }
+.mini-box span { position: absolute; left: 14px; right: 14px; top: 24px; height: 7px; border-radius: 4px; background: #B9667C; }
+.mini-box::after { content: ''; position: absolute; left: 50%; top: 4px; width: 26px; height: 18px; margin-left: -13px; background: #fff;
+  border-radius: 3px; animation: drop 1.4s ease-in-out infinite; }
+@keyframes drop { 0% { transform: translateY(-26px); opacity: 0; } 40% { opacity: 1; } 70%, 100% { transform: translateY(18px); opacity: 0; } }
+
+/* ── 처음 설정 ── */
+.hero { text-align: center; padding: 42px 0 8px; }
+.hero > * + * { margin-top: 10px; }
+
+/* ── 홈 ── */
+.couple { text-align: center; padding: 8px 0 0; }
+.names { display: flex; justify-content: center; align-items: center; gap: 10px; font-size: 18px; }
+.heart { color: var(--pink); animation: beat 1.8s ease-in-out infinite; }
+@keyframes beat { 0%, 100% { transform: scale(1); } 15% { transform: scale(1.25); } 30% { transform: scale(1); } }
+.dday { display: inline-block; margin-top: 6px; padding: 4px 14px; border-radius: 999px; background: var(--peach); color: #8A4A3A;
+  font-size: 15px; text-decoration: none; }
+.postbox-wrap { position: relative; display: block; margin: 8px auto 0; width: 210px; background: none; border: 0; padding: 0; cursor: pointer; }
+.postbox { width: 100%; height: auto; display: block; filter: drop-shadow(0 10px 14px rgba(200, 120, 120, .18)); }
+.postbox .flag { transform-origin: 160px 100px; transform: rotate(80deg); transition: transform .5s cubic-bezier(.3, 1.6, .5, 1); }
+.postbox .peek { opacity: 0; transform: translateY(14px); transition: .5s; }
+.has-new .postbox .flag { transform: rotate(0); }
+.has-new .postbox .peek { opacity: 1; transform: none; animation: peek 2.4s ease-in-out infinite; }
+@keyframes peek { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+.badge { position: absolute; top: 36px; left: 40px; min-width: 30px; height: 30px; padding: 0 8px; border-radius: 999px;
+  background: var(--accent); color: #fff; font-size: 15px; display: grid; place-items: center; border: 3px solid var(--cream); }
+.status-line { text-align: center; color: var(--ink-soft); margin: 6px 0 18px; min-height: 1.6em; }
+.has-new + .status-line { color: var(--accent-text); }
+.home-actions { display: grid; gap: 10px; }
+.recent { list-style: none; margin: 10px 0 0; padding: 0; }
+.recent li + li { border-top: 1px dashed var(--line); }
+.recent a { display: flex; align-items: center; gap: 10px; padding: 12px 2px; text-decoration: none; color: var(--ink); }
+.recent .t { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.recent .d { font-size: 13px; color: var(--ink-faint); flex: none; }
+.dot-new { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex: none; }
+.dot-read { width: 8px; height: 8px; flex: none; }
+.how { margin: 10px 0 0; padding-left: 22px; }
+.how li + li { margin-top: 6px; }
+
+/* ── 편지지 ── */
+.paper-picker { display: flex; gap: 10px; margin-bottom: 14px; overflow-x: auto; padding-bottom: 4px; }
+.paper-picker input { position: absolute; opacity: 0; pointer-events: none; }
+.paper-picker label { flex: none; display: grid; justify-items: center; gap: 4px; font-size: 12px; color: var(--ink-soft); cursor: pointer; }
+.paper-picker .sw { width: 54px; height: 66px; border-radius: 10px; border: 1.5px solid var(--line); }
+.paper-picker input:checked + label .sw { border: 2.5px solid var(--accent); }
+.paper-picker input:checked + label { color: var(--accent-text); }
+.paper-picker input:focus-visible + label .sw { outline: 3px solid var(--pink); outline-offset: 2px; }
+
+.sheet { position: relative; border-radius: 18px; padding: 22px 20px 20px; box-shadow: var(--shadow); border: 1px solid var(--line); background-color: var(--paper); }
+.sheet, .paper-picker .sw { --rule: #F3E2D8; }
+[data-paper="lined"] { background-image: repeating-linear-gradient(transparent 0 31px, var(--rule) 31px 32px); background-color: #FFFDFA; }
+[data-paper="peach"] { background-color: #FFF1EA; background-image: radial-gradient(circle at 100% 0, #FFD9C7 0 60px, transparent 61px), repeating-linear-gradient(transparent 0 31px, #F8D9CC 31px 32px); }
+[data-paper="dots"] { background-color: #FFF6F8; background-image: radial-gradient(#F6C2CE 1.4px, transparent 1.6px); background-size: 18px 18px; }
+[data-paper="grid"] { background-color: #FFFEFB; background-image: linear-gradient(#EFE6DD 1px, transparent 1px), linear-gradient(90deg, #EFE6DD 1px, transparent 1px); background-size: 20px 20px; }
+.sheet-to, .sheet-from { color: var(--accent-text); }
+.sheet-from { text-align: right; margin-top: 10px; }
+.sheet-title { display: block; width: 100%; border: 0; background: transparent; font-size: 20px; padding: 8px 0; margin: 6px 0 4px;
+  border-bottom: 1.5px solid var(--pink-line); border-radius: 0; }
+.sheet-title:focus { outline: none; border-bottom-color: var(--accent); }
+.sheet-body { display: block; width: 100%; min-height: 46vh; border: 0; background: transparent; resize: vertical; line-height: 32px; font-size: 16px; padding: 0; }
+.sheet-body:focus { outline: none; }
+.read .sheet-body { min-height: 0; white-space: pre-wrap; padding: 6px 0; }
+.sheet-date { text-align: right; color: var(--ink-faint); }
+.reply-note { margin: 4px 0 0; color: var(--ink-soft); background: rgba(255,255,255,.7); border-radius: 10px; padding: 4px 10px; display: inline-block; }
+.write-meta { display: flex; justify-content: space-between; margin: 8px 4px 10px; }
+.sticky-actions { position: sticky; bottom: calc(10px + env(safe-area-inset-bottom)); margin-top: 6px; }
+.sticky-actions .btn-ghost { background: rgba(255, 253, 250, .96); }
+
+/* ── 봉투 (보내기 애니메이션 · 읽기) ── */
+.send-scene, .r-env { position: relative; width: 240px; height: 160px; margin: 0 auto; perspective: 700px; }
+.env-back { position: absolute; inset: 0; border-radius: 10px; background: var(--peach-2); }
+.env-front { position: absolute; inset: 0; border-radius: 10px; z-index: 3;
+  background: linear-gradient(to top right, var(--peach) 50%, transparent 50.5%) left/50.5% 100% no-repeat,
+              linear-gradient(to top left, #FFE2D4 50%, transparent 50.5%) right/50.5% 100% no-repeat; }
+.env-flap { position: absolute; left: 0; right: 0; top: 0; height: 62%; z-index: 4; transform-origin: top; transition: transform .6s ease, z-index 0s .3s;
+  background: linear-gradient(to bottom right, #FFC9B3 50%, transparent 50.5%) left/50.5% 100% no-repeat,
+              linear-gradient(to bottom left, #FFC9B3 50%, transparent 50.5%) right/50.5% 100% no-repeat; }
+.env-seal { position: absolute; left: 50%; top: 52%; width: 34px; height: 34px; margin: -17px 0 0 -17px; border-radius: 50%; z-index: 5;
+  background: var(--accent); color: #fff; display: grid; place-items: center; font-size: 15px; transition: opacity .3s; box-shadow: 0 2px 0 #9C4058; }
+.fold-letter, .r-paper-peek { position: absolute; left: 14px; right: 14px; top: 10px; height: 130px; background: #fff; border-radius: 6px; z-index: 2;
+  background-image: repeating-linear-gradient(transparent 0 15px, #F3E2D8 15px 16px); box-shadow: 0 2px 6px rgba(0,0,0,.08); }
+
+.send-scene .env-flap { transform: rotateX(180deg); z-index: 1; }
+.send-scene .env-seal { opacity: 0; }
+.send-scene .fold-letter { transform: translateY(-120%); }
+.send-scene.go .fold-letter { animation: slideIn .7s .1s ease-in forwards; }
+.send-scene.go .env-flap { animation: closeFlap .5s .85s ease forwards; }
+.send-scene.go .env-seal { animation: pop .3s 1.3s ease forwards; }
+@keyframes slideIn { to { transform: translateY(8%); } }
+@keyframes closeFlap { 0% { transform: rotateX(180deg); z-index: 1; } 49% { z-index: 1; } 50% { z-index: 4; } 100% { transform: rotateX(0); z-index: 4; } }
+@keyframes pop { 0% { opacity: 0; transform: scale(.4); } 70% { transform: scale(1.2); } 100% { opacity: 1; transform: scale(1); } }
+.send-msg { min-height: 1.6em; color: var(--ink-soft); }
+
+/* 링크 보내기 화면의 봉인된 봉투 */
+.sealed { position: relative; width: 200px; height: 134px; margin: 8px auto 0; animation: float 3s ease-in-out infinite; }
+.sealed .env-flap { height: 62%; }
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-6px) rotate(2deg); } }
+
+.open-stage { padding: 110px 0 10px; transition: padding .4s; }
+.r-env.opening .env-seal { opacity: 0; }
+.r-env.opening .env-flap { transform: rotateX(180deg); z-index: 1; }
+.r-env.opening .r-paper-peek { animation: rise .6s .45s ease forwards; }
+@keyframes rise { to { transform: translateY(-60%); } }
+.open-stage.done { display: none; }
+.read { animation: fadeUp .5s ease both; }
+.r-meta { text-align: center; color: var(--ink-soft); margin: 12px 0; }
+.fav-btn[aria-pressed="true"] { color: var(--accent-text); border-color: var(--accent); background: var(--pink-soft); }
+#r-actions, #r-sent-actions { margin-top: 12px; }
+#r-notice { margin-bottom: 14px; }
+
+/* ── 편지함 ── */
+.env-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+.env-card { position: relative; display: block; width: 100%; aspect-ratio: 3 / 2.2; border: 0; padding: 0; background: none; cursor: pointer; text-align: left; color: var(--ink); text-decoration: none; }
+.env-card .ec-body { position: absolute; inset: 0; border-radius: 12px; background: var(--peach); box-shadow: var(--shadow-sm); overflow: hidden; }
+.env-card .ec-body::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 55%;
+  background: linear-gradient(to bottom right, #FFC9B3 50%, transparent 50.5%) left/50.5% 100% no-repeat,
+              linear-gradient(to bottom left, #FFC9B3 50%, transparent 50.5%) right/50.5% 100% no-repeat; }
+.env-card.read .ec-body { background: #FBEDE5; }
+.env-card.read .ec-body::before { opacity: .45; }
+.env-card .ec-seal { position: absolute; left: 50%; top: 32%; width: 26px; height: 26px; margin: -13px 0 0 -13px; border-radius: 50%;
+  background: var(--accent); color: #fff; display: grid; place-items: center; font-size: 12px; z-index: 2; }
+.env-card.read .ec-seal { background: #E7C3B8; }
+.env-card .ec-text { position: absolute; left: 10px; right: 10px; bottom: 8px; z-index: 2; }
+.env-card .ec-title { font-size: 14px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.env-card .ec-sub { font-size: 11.5px; color: var(--ink-soft); display: flex; justify-content: space-between; gap: 4px; }
+.env-card .ec-new { position: absolute; top: 8px; left: 8px; z-index: 2; background: #fff; color: var(--accent-text); font-size: 11px; padding: 1px 8px; border-radius: 999px; }
+.env-card .ec-fav { position: absolute; top: 6px; right: 8px; z-index: 2; color: var(--accent); font-size: 16px; }
+.chip { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px; }
+.chip.unread { background: #fff; color: var(--ink-soft); }
+.chip.readok { background: #fff; color: var(--accent-text); }
+
+@media (min-width: 520px) {
+  .env-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
+}
+#l-empty-msg, #error-msg { white-space: pre-line; }
+  </style>
+</head>
+<body>
+  <div class="app">
+
+    <header class="topbar" id="topbar" hidden>
+      <button class="back" id="back" type="button" aria-label="뒤로">‹</button>
+      <a class="brand" href="#/home"><span class="brand-dot" aria-hidden="true"></span>둘만의 우체통</a>
+      <a class="icon-link" href="#/settings" aria-label="설정">⚙︎</a>
+    </header>
+
+    <main id="main">
+      <!-- 불러오는 중 -->
+      <section class="view center-view" data-view="loading">
+        <div class="mini-box" aria-hidden="true"><span></span></div>
+        <p class="muted" id="loading-msg">우체통을 여는 중…</p>
+      </section>
+
+      <!-- 오류 (잘못된 편지 링크 등) -->
+      <section class="view center-view" data-view="error" hidden>
+        <div class="big-emoji" aria-hidden="true">🥲</div>
+        <h2 id="error-title">편지를 열지 못했어요</h2>
+        <p class="muted" id="error-msg"></p>
+        <a class="btn btn-primary" href="#/home">우체통으로 가기</a>
+      </section>
+
+      <!-- 처음 설정 ① 이름 -->
+      <section class="view" data-view="setup" hidden>
+        <div class="hero">
+          <div class="mini-box" aria-hidden="true"><span></span></div>
+          <h1>둘만의 우체통</h1>
+          <p class="muted">우리 둘만 주고받는 작은 편지함</p>
+        </div>
+        <form class="card stack" id="setup-form" novalidate>
+          <label class="field"><span>내 이름 <small class="muted">(편지에 From.으로 적혀요)</small></span>
+            <input class="input" id="su-me" maxlength="10" autocomplete="nickname" placeholder="예: 하늘"></label>
+          <label class="field"><span>상대 이름 <small class="muted">(편지에 To.로 적혀요)</small></span>
+            <input class="input" id="su-partner" maxlength="10" autocomplete="off" placeholder="예: 바다"></label>
+          <div class="error-box" id="su-error" role="alert" hidden></div>
+          <button class="btn btn-primary" type="submit">시작하기</button>
+        </form>
+        <p class="small muted center">가입 없이 바로 써요.<br>편지를 쓰면 링크가 생기고, 그 링크를 카톡으로 보내면 상대 우체통에 도착해요.</p>
+      </section>
+
+      <!-- 처음 설정 ② 사귄 날짜 -->
+      <section class="view" data-view="firstdate" hidden>
+        <div class="center-text">
+          <div class="big-emoji" aria-hidden="true">💞</div>
+          <div class="names"><span id="fd-me"></span><span class="heart" aria-hidden="true">♥</span><span id="fd-partner"></span></div>
+          <h1>우리, 언제부터 함께했나요?</h1>
+          <p class="muted">사귄 날짜를 알려주면 함께한 날을 세어 드려요.</p>
+        </div>
+        <form class="card stack" id="fd-form" novalidate>
+          <label class="field"><span>사귄 날짜 <small class="muted">(편지와 함께 상대에게도 전해져요)</small></span>
+            <input class="input" id="fd-date" type="date" required></label>
+          <p class="center" id="fd-preview-wrap" hidden><span class="dday" id="fd-preview" aria-live="polite"></span></p>
+          <div class="error-box" id="fd-error" role="alert" hidden></div>
+          <button class="btn btn-primary" type="submit">이 날짜로 시작하기</button>
+        </form>
+        <button class="link-btn center-block" type="button" id="fd-skip">나중에 정할게요</button>
+        <p class="small muted center">설정(⚙︎)에서 언제든 바꿀 수 있어요.</p>
+      </section>
+
+      <!-- 홈 -->
+      <section class="view" data-view="home" hidden>
+        <div class="couple">
+          <div class="names"><span id="h-me"></span><span class="heart" aria-hidden="true">♥</span><span id="h-partner"></span></div>
+          <a class="dday" id="h-dday" href="#/settings"></a>
+        </div>
+
+        <button class="postbox-wrap" type="button" id="postbox" aria-describedby="h-status">
+          <svg class="postbox" viewBox="0 0 200 220" aria-hidden="true">
+            <ellipse cx="100" cy="210" rx="56" ry="7" fill="#F1DED2"/>
+            <rect x="90" y="120" width="20" height="88" rx="6" fill="#E8B49C"/>
+            <path d="M40 74a40 40 0 0 1 40-40h40a40 40 0 0 1 40 40v58a10 10 0 0 1-10 10H50a10 10 0 0 1-10-10z" fill="#F6A9B8"/>
+            <path d="M40 74a40 40 0 0 1 40-40h40a40 40 0 0 1 40 40v6H40z" fill="#F9BCC8"/>
+            <rect x="66" y="66" width="68" height="9" rx="4.5" fill="#B9667C"/>
+            <rect x="72" y="92" width="56" height="30" rx="8" fill="#FFF8F0"/>
+            <text x="100" y="112" text-anchor="middle" font-size="11" fill="#C97A8E" font-family="sans-serif">LOVE POST</text>
+            <g class="flag"><rect x="158" y="62" width="4" height="40" rx="2" fill="#D9877A"/><path d="M162 62h20l-6 8 6 8h-20z" fill="#FFB49A"/></g>
+            <g class="peek"><rect x="80" y="52" width="40" height="26" rx="3" fill="#fff" stroke="#F0C9B8" stroke-width="2"/><path d="M80 54l20 13 20-13" fill="none" stroke="#F0C9B8" stroke-width="2"/></g>
+          </svg>
+          <span class="badge" id="h-badge" hidden></span>
+        </button>
+        <p class="status-line" id="h-status" aria-live="polite"></p>
+
+        <div class="home-actions">
+          <a class="btn btn-primary" href="#/write">✏️ 편지 쓰기</a>
+          <div class="row"><a class="btn btn-ghost grow" href="#/inbox">📬 받은 편지함</a><a class="btn btn-ghost grow" href="#/sent">📮 보낸 편지함</a></div>
+        </div>
+
+        <div class="notice" id="h-storage" role="alert" hidden>⚠️ 이 브라우저에서는 편지를 저장할 수 없어요. 시크릿(사생활 보호) 모드라면 일반 창에서 열어주세요.</div>
+
+        <div class="card" id="h-howto" hidden>
+          <h2 class="h3">이렇게 써요</h2>
+          <ol class="how small">
+            <li>편지를 쓰고 <b>봉투에 담기</b>를 눌러요.</li>
+            <li>만들어진 링크를 <b id="h-howto-p"></b>님에게 카톡으로 보내요.</li>
+            <li>링크를 누르면 그 휴대폰에 우체통이 생기고 편지가 도착해요. 답장도 똑같이 링크로 와요.</li>
+          </ol>
+        </div>
+
+        <div class="card" id="h-recent-card">
+          <h2 class="h3">최근 도착한 편지</h2>
+          <ul class="recent" id="h-recent"></ul>
+          <p class="empty small" id="h-recent-empty" hidden>아직 받은 편지가 없어요. 먼저 한 통 보내볼까요?</p>
+        </div>
+      </section>
+
+      <!-- 편지 쓰기 -->
+      <section class="view" data-view="write" hidden>
+        <h1 class="page-title">편지 쓰기</h1>
+        <div class="paper-picker" id="paper-picker" role="radiogroup" aria-label="편지지 고르기"></div>
+        <form id="write-form" class="sheet" data-paper="lined" novalidate>
+          <div class="sheet-to">To. <b id="w-to"></b></div>
+          <p class="reply-note small" id="w-reply" hidden></p>
+          <input class="sheet-title" id="w-title" maxlength="40" placeholder="제목" aria-label="제목">
+          <textarea class="sheet-body" id="w-body" maxlength="2000" placeholder="하고 싶은 말을 천천히 적어봐요." aria-label="편지 내용"></textarea>
+          <div class="sheet-from">From. <b id="w-from"></b></div>
+        </form>
+        <div class="write-meta"><span id="w-saved" class="small muted" aria-live="polite"></span><span id="w-count" class="small muted"></span></div>
+        <div class="error-box" id="w-error" role="alert" hidden></div>
+        <div class="row sticky-actions">
+          <button class="btn btn-ghost grow" type="button" id="w-save">임시 저장</button>
+          <button class="btn btn-primary grow" type="button" id="w-send">봉투에 담기</button>
+        </div>
+      </section>
+
+      <!-- 봉투에 담는 애니메이션 -->
+      <section class="view center-view" data-view="sending" hidden>
+        <div class="send-scene" id="send-scene" aria-hidden="true">
+          <div class="env-back"></div>
+          <div class="fold-letter"></div>
+          <div class="env-front"></div>
+          <div class="env-flap"></div>
+          <div class="env-seal">♥</div>
+        </div>
+        <p class="send-msg" id="send-msg">편지를 봉투에 담는 중…</p>
+      </section>
+
+      <!-- 링크 보내기 -->
+      <section class="view" data-view="ready" hidden>
+        <div class="center-text">
+          <div class="sealed" aria-hidden="true"><div class="env-back"></div><div class="env-front"></div><div class="env-flap"></div><div class="env-seal">♥</div></div>
+          <h1>봉투에 담았어요</h1>
+          <p class="muted">이제 링크를 <b class="rd-to"></b>님에게 보내면 편지가 도착해요.</p>
+        </div>
+        <div class="card stack">
+          <button class="btn btn-primary" type="button" id="rd-share">💌 카톡으로 보내기</button>
+          <button class="btn btn-ghost" type="button" id="rd-copy">🔗 링크 복사</button>
+          <div class="error-box" id="rd-local" hidden>지금 화면은 내 컴퓨터 파일이나 다른 페이지 안에서 열려 있어서, 이 링크가 상대 휴대폰에서 열리지 않을 수 있어요.
+GitHub Pages 같은 인터넷 주소에 올린 뒤 그 주소에서 편지를 보내주세요.</div>
+          <p class="small muted">링크를 누르면 <b class="rd-to"></b>님 우체통에 편지가 쏙 들어가요. 보낸 편지함에서 언제든 다시 보낼 수 있어요.</p>
+        </div>
+        <a class="link-btn center-block" href="#/sent">보낸 편지함으로</a>
+      </section>
+
+      <!-- 받은 / 보낸 편지함 -->
+      <section class="view" data-view="list" hidden>
+        <h1 class="page-title" id="l-title">받은 편지함</h1>
+        <div class="seg seg-sm" id="l-filter" role="tablist" aria-label="보기">
+          <button type="button" role="tab" data-f="all" aria-selected="true">전체</button>
+          <button type="button" role="tab" data-f="unread" aria-selected="false">안 읽음</button>
+          <button type="button" role="tab" data-f="fav" aria-selected="false">♥ 하트</button>
+        </div>
+        <ul class="env-grid" id="l-items"></ul>
+        <div class="empty-state" id="l-empty" hidden>
+          <div class="big-emoji" aria-hidden="true">📭</div>
+          <p id="l-empty-msg"></p>
+          <a class="btn btn-primary btn-sm" href="#/write">편지 쓰러 가기</a>
+        </div>
+      </section>
+
+      <!-- 편지 읽기 -->
+      <section class="view" data-view="letter" hidden>
+        <div class="notice" id="r-notice" hidden>
+          <span id="r-notice-msg"></span>
+          <button class="btn btn-primary btn-sm" type="button" id="r-notice-btn" hidden></button>
+        </div>
+        <div class="open-stage" id="r-stage">
+          <div class="r-env" id="r-env" aria-hidden="true"><div class="env-back"></div><div class="r-paper-peek"></div><div class="env-front"></div><div class="env-flap"></div><div class="env-seal">♥</div></div>
+        </div>
+        <article class="sheet read" id="r-sheet" data-paper="lined" hidden>
+          <div class="sheet-to">To. <b id="r-to"></b></div>
+          <p class="reply-note small" id="r-reply" hidden></p>
+          <h1 class="sheet-title" id="r-title"></h1>
+          <div class="sheet-body" id="r-body"></div>
+          <div class="sheet-from">From. <b id="r-from"></b></div>
+          <div class="sheet-date small" id="r-date"></div>
+        </article>
+        <div class="r-meta small" id="r-meta" hidden></div>
+        <div class="row" id="r-actions" hidden>
+          <button class="btn btn-ghost fav-btn" type="button" id="r-fav" aria-pressed="false">♡ 하트</button>
+          <button class="btn btn-primary grow" type="button" id="r-reply-btn">답장 쓰기</button>
+        </div>
+        <div class="row" id="r-sent-actions" hidden>
+          <button class="btn btn-ghost grow" type="button" id="r-reshare">💌 링크 다시 보내기</button>
+        </div>
+        <div class="empty-state" id="r-error" hidden>
+          <p>편지를 찾지 못했어요.</p>
+          <a class="btn btn-ghost btn-sm" href="#/home">홈으로</a>
+        </div>
+      </section>
+
+      <!-- 설정 -->
+      <section class="view" data-view="settings" hidden>
+        <h1 class="page-title">설정</h1>
+        <form class="card stack" id="set-form" novalidate>
+          <label class="field"><span>내 이름</span><input class="input" id="s-me" maxlength="10" required></label>
+          <label class="field"><span>상대 이름</span><input class="input" id="s-partner" maxlength="10" required></label>
+          <label class="field"><span>사귄 날짜</span><input class="input" id="s-date" type="date"></label>
+          <div class="error-box" id="s-error" role="alert" hidden></div>
+          <button class="btn btn-primary" type="submit">저장</button>
+        </form>
+        <div class="card stack">
+          <h2 class="h3">편지 보관</h2>
+          <p class="small muted">편지는 이 휴대폰의 브라우저 안에만 저장돼요. 휴대폰을 바꾸거나 인터넷 기록을 지우기 전에 백업 파일을 저장해 두세요. 받은 링크는 카톡에 남아 있어서 다시 누르면 언제든 다시 들어와요.</p>
+          <div class="row"><button class="btn btn-ghost grow btn-sm" type="button" id="s-export">백업 파일 저장</button>
+            <button class="btn btn-ghost grow btn-sm" type="button" id="s-import">백업 불러오기</button></div>
+          <input type="file" id="s-file" accept="application/json,.json" hidden>
+          <p class="small muted" id="s-count"></p>
+        </div>
+        <button class="link-btn center-block" type="button" id="s-reset">모든 편지 지우고 처음부터</button>
+      </section>
+    </main>
+  </div>
+
+  <!-- 봉투에 담기 확인 -->
+  <dialog class="dialog" id="send-dialog" aria-labelledby="send-dialog-title">
+    <h2 id="send-dialog-title" class="h3">편지를 봉투에 담을까요?</h2>
+    <p class="muted">담으면 링크가 만들어져요. 그 링크를 <b id="sd-to"></b>님에게 보내면 도착해요.<br>봉투에 담은 편지는 고칠 수 없어요.</p>
+    <div class="row"><button class="btn btn-ghost grow" type="button" id="sd-cancel">조금 더 쓸래요</button>
+      <button class="btn btn-primary grow" type="button" id="sd-ok">봉투에 담기</button></div>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script>
+'use strict';
+(() => {
+  const $ = (s) => document.querySelector(s);
+  const DAY = 86400000;
+  const PAPERS = { lined: '줄 편지지', peach: '복숭아', dots: '핑크 도트', grid: '모눈' };
+  const MAX_TITLE = 40;
+  const MAX_BODY = 2000;   // 링크 하나에 담기 때문에 2,000자까지
+  const MAX_NAME = 10;
+  const KEY = 'dulman-mailbox.v1';
+
+  // ── 저장소 (이 휴대폰 브라우저 안) ─────────────────────
+  let storageOk = true;
+  let S = load();          // { v, me:{id,name}, partner:{id,name}, startedOn, fdDone, letters:[], draft }
+  function load() {
+    try {
+      const x = JSON.parse(localStorage.getItem(KEY));
+      if (x && x.v === 1 && x.me && Array.isArray(x.letters)) return x;
+    } catch { /* 저장소를 못 씀 */ }
+    return null;
+  }
+  function save() {
+    if (!S) return;
+    try { localStorage.setItem(KEY, JSON.stringify(S)); storageOk = true; }
+    catch { storageOk = false; }
+  }
+  try { const t = '__t'; localStorage.setItem(t, '1'); localStorage.removeItem(t); } catch { storageOk = false; }
+  // 다른 탭에서 편지가 들어오면 이 탭에도 반영
+  window.addEventListener('storage', (e) => {
+    if (e.key !== KEY) return;
+    const fresh = load(); if (!fresh) return;
+    S = fresh;
+    if (!$('[data-view="home"]').hidden) paintHome();
+    else if (!$('[data-view="list"]').hidden) paintList();
+  });
+
+  const newId = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+  const inbox = () => S.letters.filter((l) => l.box === 'in').sort((a, b) => b.createdAt - a.createdAt);
+  const outbox = () => S.letters.filter((l) => l.box === 'out').sort((a, b) => b.createdAt - a.createdAt);
+  const findLetter = (id) => S.letters.find((l) => l.id === id);
+
+  // ── 작은 도우미 ────────────────────────────────────────
+  function el(tag, attrs = {}, ...kids) {
+    const n = document.createElement(tag);
+    for (const [k, v] of Object.entries(attrs)) {
+      if (v == null || v === false) continue;
+      if (k === 'class') n.className = v; else if (k === 'text') n.textContent = v; else n.setAttribute(k, v === true ? '' : v);
+    }
+    kids.flat().forEach((c) => c != null && c !== false && n.append(c));
+    return n;
+  }
+  let toastT;
+  function toast(msg) {
+    const t = $('#toast'); t.textContent = msg; t.hidden = false;
+    clearTimeout(toastT); toastT = setTimeout(() => { t.hidden = true; }, 2800);
+  }
+  const showErr = (box, msg) => { box.textContent = msg || ''; box.hidden = !msg; };
+  const fmtDate = (ms) => new Date(ms).toLocaleDateString('ko-KR', { year: 'numeric', month: 'long', day: 'numeric' });
+  const fmtShort = (ms) => {
+    const d = new Date(ms); const now = new Date();
+    if (d.toDateString() === now.toDateString()) return d.toLocaleTimeString('ko-KR', { hour: 'numeric', minute: '2-digit' });
+    return d.toLocaleDateString('ko-KR', d.getFullYear() === now.getFullYear() ? { month: 'short', day: 'numeric' } : { year: '2-digit', month: 'short', day: 'numeric' });
+  };
+  const fmtDT = (ms) => new Date(ms).toLocaleString('ko-KR', { month: 'long', day: 'numeric', weekday: 'short', hour: 'numeric', minute: '2-digit' });
+  const charLen = (s) => [...s].length;
+  const clip = (s, n) => [...String(s || '')].slice(0, n).join('');
+  const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const wait = (ms) => new Promise((r) => setTimeout(r, reduced() ? 0 : ms));
+  const todayStr = () => { const t = new Date(); return `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, '0')}-${String(t.getDate()).padStart(2, '0')}`; };
+  const isDate = (s) => typeof s === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(s);
+  function dday(startedOn) {
+    if (!isDate(startedOn)) return null;
+    const [y, m, d] = startedOn.split('-').map(Number);
+    const start = new Date(y, m - 1, d); const today = new Date(); today.setHours(0, 0, 0, 0);
+    return Math.round((today - start) / DAY) + 1; // 사귄 첫날이 D+1
+  }
+  async function copyText(t) {
+    try { await navigator.clipboard.writeText(t); return true; } catch {
+      const ta = el('textarea'); ta.value = t; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.append(ta); ta.select();
+      let ok = false; try { ok = document.execCommand('copy'); } catch { /* 무시 */ } ta.remove(); return ok;
+    }
+  }
+  const inKakao = /KAKAOTALK/i.test(navigator.userAgent);
+
+  // ── 편지 ↔ 링크 ───────────────────────────────────────
+  // 편지 내용은 주소의 # 뒤에 담겨요. # 뒤는 서버로 전송되지 않아서 사이트 운영 쪽에도 남지 않아요.
+  const b64u = {
+    enc(bytes) {
+      let s = ''; for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+      return btoa(s).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    },
+    dec(str) {
+      let s = str.replace(/-/g, '+').replace(/_/g, '/'); while (s.length % 4) s += '=';
+      const bin = atob(s); const out = new Uint8Array(bin.length);
+      for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+      return out;
+    },
+  };
+  const streamBytes = async (bytes, stream) => new Uint8Array(await new Response(new Blob([bytes]).stream().pipeThrough(stream)).arrayBuffer());
+  async function pack(obj) {
+    const raw = new TextEncoder().encode(JSON.stringify(obj));
+    if (window.CompressionStream) {
+      try { const z = await streamBytes(raw, new CompressionStream('deflate-raw')); if (z.length < raw.length) return 'z' + b64u.enc(z); } catch { /* 압축 없이 */ }
+    }
+    return 'j' + b64u.enc(raw);
+  }
+  async function unpack(s) {
+    let bytes = b64u.dec(s.slice(1));
+    if (s[0] === 'z') {
+      if (!window.DecompressionStream) throw new Error('old');
+      bytes = await streamBytes(bytes, new DecompressionStream('deflate-raw'));
+    }
+    return JSON.parse(new TextDecoder().decode(bytes));
+  }
+  const baseUrl = () => location.href.split('#')[0].split('?')[0];
+  const urlCache = new Map();
+  async function letterUrl(l) {
+    if (urlCache.has(l.id)) return urlCache.get(l.id);
+    const p = { v: 1, i: l.id, f: l.from, fi: l.fromId, t: l.to, ti: l.title, b: l.body, p: l.paper, c: l.createdAt };
+    if (l.replyTo) { p.r = l.replyTo; if (l.replyTitle) p.rt = l.replyTitle; }
+    if (S.startedOn) p.s = S.startedOn;
+    const url = `${baseUrl()}#/l/${await pack(p)}`;
+    urlCache.set(l.id, url);
+    return url;
+  }
+  // 받은 링크 내용을 검사해서 편지로 바꿔요
+  function parseIncoming(p) {
+    const str = (v, max) => (typeof v === 'string' && charLen(v) <= max ? v : null);
+    if (!p || p.v !== 1) return null;
+    const l = {
+      id: typeof p.i === 'string' && /^[a-z0-9]{6,24}$/.test(p.i) ? p.i : null,
+      from: str(p.f, MAX_NAME), fromId: typeof p.fi === 'string' && /^[a-z0-9]{6,24}$/.test(p.fi) ? p.fi : null,
+      to: str(p.t, MAX_NAME), title: str(p.ti, MAX_TITLE), body: str(p.b, 5000),
+      paper: PAPERS[p.p] ? p.p : 'lined', createdAt: Number.isFinite(p.c) ? Math.min(p.c, Date.now()) : Date.now(),
+      replyTo: typeof p.r === 'string' && /^[a-z0-9]{6,24}$/.test(p.r) ? p.r : null, replyTitle: str(p.rt, MAX_TITLE),
+    };
+    if (!l.id || !l.from || !l.fromId || !l.to || !l.title || l.body == null) return null;
+    return { letter: l, startedOn: isDate(p.s) && p.s <= todayStr() ? p.s : null };
+  }
+
+  // ── 화면 전환 ──────────────────────────────────────────
+  function show(name) {
+    document.querySelectorAll('[data-view]').forEach((v) => { v.hidden = v.dataset.view !== name; });
+    const inside = Boolean(S) && !['setup', 'firstdate', 'loading', 'sending', 'error'].includes(name);
+    $('#topbar').hidden = !inside;
+    $('#back').setAttribute('aria-hidden', String(name === 'home'));
+    window.scrollTo(0, 0);
+  }
+  const go = (hash) => { if (location.hash === hash) route(); else location.hash = hash; };
+  let leaveHook = null;
+
+  function route() {
+    if (leaveHook) { const h = leaveHook; leaveHook = null; try { h(); } catch { /* 무시 */ } }
+    const inc = location.hash.match(/^#\/l\/([jz][A-Za-z0-9_-]+)/);
+    if (inc) return receive(inc[1]);
+    if (!S) return showSetup();
+    const [, page, arg] = (location.hash.replace(/\?.*$/, '').match(/^#\/([a-z]+)\/?([\w-]*)/) || [, 'home', '']);
+    const q = new URLSearchParams(location.hash.split('?')[1] || '');
+    if (page === 'write') return showWrite(q.get('reply'));
+    if (page === 'inbox' || page === 'sent') return showList(page);
+    if (page === 'letter' && arg) return showLetter(arg);
+    if (page === 'settings') return showSettings();
+    if (page === 'ready' && arg) return showReady(arg);
+    if (!S.startedOn && !S.fdDone) return showFirstDate();
+    return showHome();
+  }
+  window.addEventListener('hashchange', route);
+  $('#back').addEventListener('click', () => { if (history.length > 1) history.back(); else go('#/home'); });
+
+  // ── 처음 설정 ─────────────────────────────────────────
+  function showSetup() {
+    showErr($('#su-error'));
+    show('setup');
+  }
+  $('#setup-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const me = $('#su-me').value.trim(); const partner = $('#su-partner').value.trim();
+    if (!me) return showErr($('#su-error'), '내 이름을 적어주세요.');
+    if (!partner) return showErr($('#su-error'), '편지를 받을 상대 이름을 적어주세요.');
+    if (charLen(me) > MAX_NAME || charLen(partner) > MAX_NAME) return showErr($('#su-error'), `이름은 ${MAX_NAME}자까지 적을 수 있어요.`);
+    S = { v: 1, me: { id: newId(), name: me }, partner: { id: null, name: partner }, startedOn: null, fdDone: false, letters: [], draft: null, createdAt: Date.now() };
+    save(); askPersist();
+    go('#/home');
+  });
+  function askPersist() { try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist(); } catch { /* 무시 */ } }
+
+  // 사귄 날짜 정하기
+  function paintFirstDatePreview() {
+    const v = $('#fd-date').value;
+    const n = v && v <= todayStr() ? dday(v) : null;
+    $('#fd-preview').textContent = n ? `오늘이 함께한 지 D+${n}이에요` : '';
+    $('#fd-preview-wrap').hidden = !n;
+  }
+  function showFirstDate() {
+    $('#fd-me').textContent = S.me.name; $('#fd-partner').textContent = S.partner.name;
+    $('#fd-date').value = ''; $('#fd-date').max = todayStr();
+    paintFirstDatePreview(); showErr($('#fd-error'));
+    show('firstdate');
+  }
+  $('#fd-date').addEventListener('input', () => { paintFirstDatePreview(); showErr($('#fd-error')); });
+  $('#fd-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const v = $('#fd-date').value;
+    if (!v) return showErr($('#fd-error'), '사귄 날짜를 골라주세요.');
+    if (v > todayStr()) return showErr($('#fd-error'), '오늘 이후 날짜는 고를 수 없어요.');
+    S.startedOn = v; S.fdDone = true; save(); urlCache.clear();
+    toast(`저장했어요. 오늘이 함께한 지 D+${dday(v)}이에요 💞`); go('#/home');
+  });
+  $('#fd-skip').addEventListener('click', () => { S.fdDone = true; save(); go('#/home'); });
+
+  // ── 홈 ────────────────────────────────────────────────
+  function showHome() { paintHome(); show('home'); }
+  function paintHome() {
+    $('#h-me').textContent = S.me.name; $('#h-partner').textContent = S.partner.name;
+    const n = dday(S.startedOn);
+    $('#h-dday').textContent = n == null ? '사귄 날짜 정하기 ›' : n > 0 ? `우리가 함께한 지 D+${n}` : `D${n - 1}`;
+    const box = inbox(); const unread = box.filter((l) => !l.readAt).length;
+    const wrap = $('#postbox');
+    wrap.classList.toggle('has-new', unread > 0);
+    $('#h-badge').hidden = !unread; $('#h-badge').textContent = unread > 99 ? '99+' : String(unread);
+    $('#h-status').textContent = unread ? `새 편지가 도착했어요 💌 (${unread}통)` : '우체통이 조용해요. 먼저 마음을 전해볼까요?';
+    wrap.setAttribute('aria-label', unread ? `새 편지 ${unread}통, 받은 편지함 열기` : '받은 편지함 열기');
+    const ul = $('#h-recent'); ul.textContent = '';
+    box.slice(0, 3).forEach((l) => ul.append(el('li', {}, el('a', { href: `#/letter/${l.id}` },
+      el('span', { class: l.readAt ? 'dot-read' : 'dot-new', 'aria-label': l.readAt ? null : '안 읽음' }),
+      el('span', { class: 't', text: l.title }), el('span', { class: 'd', text: fmtShort(l.createdAt) })))));
+    $('#h-recent-empty').hidden = box.length > 0;
+    $('#h-howto').hidden = S.letters.length > 0;
+    $('#h-recent-card').hidden = S.letters.length === 0;
+    $('#h-howto-p').textContent = S.partner.name;
+    $('#h-storage').hidden = storageOk;
+  }
+  $('#postbox').addEventListener('click', () => go('#/inbox'));
+
+  // ── 편지 쓰기 ─────────────────────────────────────────
+  const W = { paper: 'lined', replyTo: null, replyTitle: null, timer: null };
+  const paperBox = $('#paper-picker');
+  Object.entries(PAPERS).forEach(([k, label]) => {
+    const id = `paper-${k}`;
+    const input = el('input', { type: 'radio', name: 'paper', id, value: k });
+    input.addEventListener('change', () => { setPaper(k); markDirty(); });
+    paperBox.append(input, el('label', { for: id }, el('span', { class: 'sw', 'data-paper': k }), el('span', { text: label })));
+  });
+  function setPaper(k) {
+    W.paper = PAPERS[k] ? k : 'lined';
+    $('#write-form').dataset.paper = W.paper;
+    const r = document.getElementById(`paper-${W.paper}`); if (r) r.checked = true;
+  }
+  function updateCount() { $('#w-count').textContent = `${charLen($('#w-body').value).toLocaleString()} / ${MAX_BODY.toLocaleString()}자`; }
+  function markDirty() {
+    $('#w-saved').textContent = '작성 중…';
+    clearTimeout(W.timer); W.timer = setTimeout(() => saveDraft(false), 800);
+  }
+  function saveDraft(manual) {
+    clearTimeout(W.timer);
+    if ($('[data-view="write"]').hidden && !manual) return;
+    const title = $('#w-title').value; const body = $('#w-body').value;
+    S.draft = (title.trim() || body.trim()) ? { title, body, paper: W.paper, replyTo: W.replyTo, replyTitle: W.replyTitle, updatedAt: Date.now() } : null;
+    save();
+    $('#w-saved').textContent = storageOk ? `임시 저장됨 · ${new Date().toLocaleTimeString('ko-KR', { hour: 'numeric', minute: '2-digit' })}` : '⚠️ 이 브라우저에는 저장이 안 돼요';
+    if (manual) toast(storageOk ? '임시 저장했어요.' : '이 브라우저에서는 저장할 수 없어요.');
+  }
+  ['#w-title', '#w-body'].forEach((s) => $(s).addEventListener('input', () => { markDirty(); updateCount(); }));
+  $('#w-save').addEventListener('click', () => saveDraft(true));
+  window.addEventListener('pagehide', () => { if (!$('[data-view="write"]').hidden) saveDraft(false); });
+
+  function showWrite(replyId) {
+    $('#w-to').textContent = S.partner.name; $('#w-from').textContent = S.me.name;
+    showErr($('#w-error')); $('#w-saved').textContent = '';
+    const orig = replyId ? findLetter(replyId) : null;
+    const draft = S.draft;
+    let useDraft = Boolean(draft);
+    if (orig && draft && draft.replyTo !== orig.id) {
+      useDraft = !window.confirm('작성 중이던 편지가 있어요.\n그 편지는 지우고 답장을 새로 쓸까요?');
+    }
+    if (useDraft) {
+      $('#w-title').value = draft.title; $('#w-body').value = draft.body; setPaper(draft.paper);
+      W.replyTo = draft.replyTo || null; W.replyTitle = draft.replyTitle || null;
+      $('#w-saved').textContent = `임시 저장된 편지를 불러왔어요 · ${fmtShort(draft.updatedAt)}`;
+    } else {
+      $('#w-title').value = orig ? clip(`Re: ${orig.title}`, MAX_TITLE) : ''; $('#w-body').value = '';
+      setPaper(orig ? orig.paper : 'lined');
+      W.replyTo = orig ? orig.id : null; W.replyTitle = orig ? orig.title : null;
+    }
+    $('#w-reply').hidden = !W.replyTo; $('#w-reply').textContent = W.replyTitle ? `↩︎ 「${W.replyTitle}」에 답장` : '↩︎ 답장';
+    updateCount();
+    show('write');
+    leaveHook = () => saveDraft(false);
+    if (!$('#w-title').value) $('#w-title').focus();
+  }
+
+  $('#w-send').addEventListener('click', () => {
+    const title = $('#w-title').value.trim(); const body = $('#w-body').value.trim();
+    let msg = '';
+    if (!title) msg = '제목을 적어주세요.';
+    else if (charLen(title) > MAX_TITLE) msg = `제목은 ${MAX_TITLE}자까지 쓸 수 있어요.`;
+    else if (!body) msg = '편지 내용을 적어주세요.';
+    else if (charLen(body) > MAX_BODY) msg = `편지는 ${MAX_BODY.toLocaleString()}자까지 쓸 수 있어요.`;
+    showErr($('#w-error'), msg);
+    if (msg) return (title ? $('#w-body') : $('#w-title')).focus();
+    $('#sd-to').textContent = S.partner.name;
+    $('#send-dialog').showModal();
+  });
+  $('#sd-cancel').addEventListener('click', () => $('#send-dialog').close());
+  let sending = false;
+  $('#sd-ok').addEventListener('click', async () => {
+    if (sending) return; // 두 번 눌러도 한 통만
+    sending = true;
+    clearTimeout(W.timer);
+    const l = {
+      id: newId(), box: 'out', from: S.me.name, fromId: S.me.id, to: S.partner.name,
+      title: $('#w-title').value.trim(), body: $('#w-body').value.replace(/\s+$/, ''), paper: W.paper,
+      createdAt: Date.now(), readAt: null, favorite: false, replyTo: W.replyTo, replyTitle: W.replyTo ? W.replyTitle : null, sharedAt: null,
+    };
+    S.letters.push(l); S.draft = null; save();
+    leaveHook = null;
+    $('#send-dialog').close();
+    $('#w-title').value = ''; $('#w-body').value = ''; W.replyTo = null; W.replyTitle = null;
+    try {
+      await Promise.all([letterUrl(l), playSend()]);
+      history.replaceState(null, '', '#/sent'); // 뒤로 가기를 눌러도 편지 쓰기로 돌아가지 않게
+      location.hash = `#/ready/${l.id}`;
+    } finally { sending = false; }
+  });
+  async function playSend() {
+    const scene = $('#send-scene');
+    scene.classList.remove('go'); void scene.offsetWidth;
+    $('#send-msg').textContent = '편지를 봉투에 담는 중…';
+    show('sending');
+    scene.classList.add('go');
+    await wait(1000); $('#send-msg').textContent = '봉투를 꼭 붙이는 중 💗';
+    await wait(900);
+  }
+
+  // ── 링크 보내기 ───────────────────────────────────────
+  let readyLetter = null;
+  async function showReady(id) {
+    const l = findLetter(id);
+    if (!l || l.box !== 'out') return go('#/sent');
+    readyLetter = l;
+    document.querySelectorAll('.rd-to').forEach((n) => { n.textContent = l.to; });
+    let framed = false; try { framed = window.top !== window.self; } catch { framed = true; }
+    $('#rd-local').hidden = location.protocol !== 'file:' && !framed;
+    $('#rd-share').textContent = navigator.share ? '💌 카톡으로 보내기' : '🔗 링크 복사하기';
+    $('#rd-copy').hidden = !navigator.share;
+    show('ready');
+    await letterUrl(l); // 버튼을 누르기 전에 미리 만들어 둬요
+  }
+  function shareText(l) { return `💌 ${l.from}님이 ${l.to}님에게 편지를 보냈어요. 링크를 눌러 열어보세요!`; }
+  function markShared(l) { if (!l.sharedAt) { l.sharedAt = Date.now(); save(); } }
+  async function shareLetter(l) {
+    const url = urlCache.get(l.id) || await letterUrl(l);
+    if (navigator.share) {
+      try { await navigator.share({ title: '둘만의 우체통', text: shareText(l), url }); markShared(l); toast('편지를 보냈어요 💌'); return; }
+      catch (e) { if (e && e.name === 'AbortError') return; /* 공유가 안 되면 복사로 */ }
+    }
+    return copyLetter(l);
+  }
+  async function copyLetter(l) {
+    const url = urlCache.get(l.id) || await letterUrl(l);
+    if (await copyText(`${shareText(l)}\n${url}`)) { markShared(l); toast('링크를 복사했어요. 카톡에 붙여넣어 보내주세요.'); }
+    else toast('복사가 안 됐어요. 다시 눌러주세요.');
+  }
+  $('#rd-share').addEventListener('click', () => readyLetter && shareLetter(readyLetter));
+  $('#rd-copy').addEventListener('click', () => readyLetter && copyLetter(readyLetter));
+
+  // ── 링크로 받은 편지 ──────────────────────────────────
+  async function receive(code) {
+    const incomingUrl = location.href;
+    $('#loading-msg').textContent = '편지를 꺼내는 중…';
+    show('loading');
+    let parsed = null; let old = false;
+    try { parsed = parseIncoming(await unpack(code)); } catch (e) { old = e && e.message === 'old'; }
+    if (!parsed) {
+      $('#error-msg').textContent = old
+        ? '이 브라우저로는 편지를 열 수 없어요.\n휴대폰을 최신 버전으로 업데이트하거나 크롬·사파리로 열어주세요.'
+        : '링크가 잘렸거나 바뀐 것 같아요.\n받은 링크 전체를 다시 눌러주세요.';
+      show('error'); $('#topbar').hidden = !S; return;
+    }
+    const { letter, startedOn } = parsed;
+    let notice = '';
+    let firstTime = false;
+    if (!S) { // 처음 받은 사람: 편지에 적힌 이름으로 우체통을 바로 만들어요
+      S = { v: 1, me: { id: newId(), name: letter.to }, partner: { id: letter.fromId, name: letter.from }, startedOn, fdDone: true, letters: [], draft: null, createdAt: Date.now() };
+      firstTime = true; askPersist();
+    }
+    if (letter.fromId === S.me.id) { // 내가 보낸 편지 링크를 내가 연 경우
+      if (!findLetter(letter.id)) S.letters.push({ ...letter, box: 'out', readAt: null, favorite: false, sharedAt: Date.now() });
+      save();
+      history.replaceState(null, '', `#/letter/${letter.id}`);
+      return showLetter(letter.id, { own: true });
+    }
+    const existing = findLetter(letter.id);
+    if (!existing) {
+      S.letters.push({ ...letter, box: 'in', readAt: null, favorite: false });
+      if (!S.partner.id) S.partner.id = letter.fromId;
+      if (!S.startedOn && startedOn) S.startedOn = startedOn;
+    } else if (!firstTime) notice = '이미 받은 편지예요.';
+    save();
+    if (firstTime) notice = `${letter.from}님이 보낸 편지로 우체통이 생겼어요 💞\n이제 여기서 답장도 쓸 수 있어요. 이름은 설정(⚙︎)에서 바꿀 수 있어요.`;
+    history.replaceState(null, '', `#/letter/${letter.id}`);
+    showLetter(letter.id, { notice, incomingUrl });
+  }
+
+  // ── 편지함 ────────────────────────────────────────────
+  const L = { box: 'inbox', filter: 'all' };
+  function showList(box) {
+    L.box = box; L.filter = 'all';
+    $('#l-title').textContent = box === 'inbox' ? '받은 편지함' : '보낸 편지함';
+    $('#l-filter').hidden = box !== 'inbox';
+    $('#l-filter').querySelectorAll('button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.f === 'all')));
+    paintList();
+    show('list');
+  }
+  $('#l-filter').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-f]'); if (!b) return;
+    L.filter = b.dataset.f;
+    $('#l-filter').querySelectorAll('button').forEach((x) => x.setAttribute('aria-selected', String(x === b)));
+    paintList();
+  });
+  function paintList() {
+    const isIn = L.box === 'inbox';
+    const all = isIn ? inbox() : outbox();
+    const items = all.filter((l) => (L.filter === 'unread' ? !l.readAt : L.filter === 'fav' ? l.favorite : true));
+    const ul = $('#l-items'); ul.textContent = '';
+    items.forEach((l) => {
+      const who = isIn ? `From. ${l.from}` : `To. ${l.to}`;
+      const status = isIn ? null : el('span', { class: `chip ${l.sharedAt ? 'readok' : 'unread'}`, text: l.sharedAt ? '링크 보냄' : '아직 안 보냈어요' });
+      const label = `${l.title}, ${who}, ${fmtDate(l.createdAt)}${isIn ? (l.readAt ? ', 읽음' : ', 안 읽음') : (l.sharedAt ? ', 링크 보냄' : ', 링크 아직 안 보냄')}${l.favorite ? ', 하트' : ''}`;
+      ul.append(el('li', {}, el('a', { class: `env-card${(isIn ? l.readAt : true) ? ' read' : ''}`, href: `#/letter/${l.id}`, 'aria-label': label },
+        el('span', { class: 'ec-body', 'aria-hidden': 'true' }),
+        el('span', { class: 'ec-seal', 'aria-hidden': 'true', text: '♥' }),
+        isIn && !l.readAt ? el('span', { class: 'ec-new', 'aria-hidden': 'true', text: 'NEW' }) : null,
+        isIn && l.favorite ? el('span', { class: 'ec-fav', 'aria-hidden': 'true', text: '♥' }) : null,
+        el('span', { class: 'ec-text', 'aria-hidden': 'true' },
+          el('span', { class: 'ec-title', text: l.title }),
+          el('span', { class: 'ec-sub' }, el('span', { text: who }), el('span', { text: fmtShort(l.createdAt) })),
+          status ? el('span', { class: 'ec-sub' }, status) : null))));
+    });
+    const empty = items.length === 0;
+    $('#l-empty').hidden = !empty;
+    if (empty) {
+      $('#l-empty-msg').textContent = all.length === 0
+        ? (isIn ? `아직 받은 편지가 없어요.\n${S.partner.name}님에게 먼저 보내볼까요?` : '아직 보낸 편지가 없어요.')
+        : L.filter === 'fav' ? '하트를 누른 편지가 없어요.' : '안 읽은 편지가 없어요. 다 읽었어요!';
+    }
+  }
+
+  // ── 편지 읽기 ─────────────────────────────────────────
+  let current = null;
+  let openToken = 0;
+  async function showLetter(id, opts = {}) {
+    const token = ++openToken;
+    current = null;
+    const l = findLetter(id);
+    const stage = $('#r-stage'); const env = $('#r-env');
+    stage.classList.remove('done'); env.classList.remove('opening');
+    ['#r-sheet', '#r-actions', '#r-sent-actions', '#r-meta', '#r-error', '#r-notice'].forEach((s) => { $(s).hidden = true; });
+    show('letter');
+    if (!l) { stage.classList.add('done'); $('#r-error').hidden = false; return; }
+    current = l;
+    const firstOpen = l.box === 'in' && !l.readAt;
+    if (firstOpen) { l.readAt = Date.now(); save(); }
+    paintNotice(l, opts);
+    if (l.box === 'out') letterUrl(l); // 다시 보내기를 위해 미리 만들어 둬요
+    if (firstOpen) { await wait(250); env.classList.add('opening'); await wait(1100); }
+    if (token !== openToken) return;
+    stage.classList.add('done');
+    const sheet = $('#r-sheet'); sheet.dataset.paper = l.paper;
+    $('#r-to').textContent = l.to; $('#r-from').textContent = l.from;
+    $('#r-title').textContent = l.title; $('#r-body').textContent = l.body;
+    $('#r-date').textContent = fmtDT(l.createdAt);
+    $('#r-reply').hidden = !l.replyTo; $('#r-reply').textContent = l.replyTitle ? `↩︎ 「${l.replyTitle}」에 답장` : '↩︎ 답장';
+    sheet.hidden = false;
+    const meta = $('#r-meta');
+    if (l.box === 'out') meta.textContent = l.sharedAt ? `📮 ${fmtDT(l.createdAt)}에 봉투에 담았어요 · 보낸 편지는 고칠 수 없어요` : `✉️ 아직 ${l.to}님에게 링크를 보내지 않았어요`;
+    else meta.textContent = `처음 연 시간 · ${fmtDT(l.readAt)}`;
+    meta.hidden = false;
+    $('#r-actions').hidden = l.box !== 'in';
+    $('#r-sent-actions').hidden = l.box !== 'out';
+    paintFav();
+  }
+  function paintNotice(l, opts) {
+    const box = $('#r-notice'); const btn = $('#r-notice-btn');
+    let msg = opts.notice || ''; btn.hidden = true; btn.onclick = null;
+    if (opts.own) msg = `내가 보낸 편지예요. 이 링크를 ${l.to}님에게 보내주세요.`;
+    if (inKakao && opts.incomingUrl && l.box === 'in') {
+      msg = '카카오톡 안에서 열렸어요. 편지를 내 우체통에 모아 두고 답장하려면 평소 쓰는 브라우저(크롬·사파리)로 열어주세요.';
+      btn.textContent = '크롬·사파리로 열기'; btn.hidden = false;
+      btn.onclick = () => { location.href = `kakaotalk://web/openExternal?url=${encodeURIComponent(opts.incomingUrl)}`; };
+    }
+    $('#r-notice-msg').textContent = msg;
+    box.hidden = !msg;
+  }
+  function paintFav() {
+    const b = $('#r-fav'); const on = Boolean(current && current.favorite);
+    b.setAttribute('aria-pressed', String(on)); b.textContent = on ? '♥ 하트' : '♡ 하트';
+  }
+  $('#r-fav').addEventListener('click', () => {
+    if (!current) return;
+    current.favorite = !current.favorite; save(); paintFav();
+    toast(current.favorite ? '하트를 눌렀어요. 하트 모아보기에서 찾을 수 있어요.' : '하트를 뺐어요.');
+  });
+  $('#r-reply-btn').addEventListener('click', () => { if (current) go(`#/write?reply=${current.id}`); });
+  $('#r-reshare').addEventListener('click', async () => {
+    if (!current) return;
+    await shareLetter(current);
+    if (current.sharedAt) $('#r-meta').textContent = `📮 ${fmtDT(current.createdAt)}에 봉투에 담았어요 · 보낸 편지는 고칠 수 없어요`;
+  });
+
+  // ── 설정 ──────────────────────────────────────────────
+  function showSettings() {
+    $('#s-me').value = S.me.name; $('#s-partner').value = S.partner.name;
+    $('#s-date').value = S.startedOn || ''; $('#s-date').max = todayStr();
+    showErr($('#s-error'));
+    const i = inbox().length; const o = outbox().length;
+    $('#s-count').textContent = `지금 받은 편지 ${i}통, 보낸 편지 ${o}통이 저장돼 있어요.`;
+    show('settings');
+  }
+  $('#set-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const me = $('#s-me').value.trim(); const partner = $('#s-partner').value.trim(); const d = $('#s-date').value;
+    if (!me || !partner) return showErr($('#s-error'), '이름을 비워둘 수 없어요.');
+    if (charLen(me) > MAX_NAME || charLen(partner) > MAX_NAME) return showErr($('#s-error'), `이름은 ${MAX_NAME}자까지 적을 수 있어요.`);
+    if (d && d > todayStr()) return showErr($('#s-error'), '오늘 이후 날짜는 고를 수 없어요.');
+    S.me.name = me; S.partner.name = partner; S.startedOn = d || null; S.fdDone = true;
+    save(); urlCache.clear(); showErr($('#s-error')); toast('저장했어요.');
+  });
+  $('#s-export').addEventListener('click', () => {
+    const blob = new Blob([JSON.stringify(S, null, 1)], { type: 'application/json' });
+    const a = el('a', { href: URL.createObjectURL(blob), download: `dulman-mailbox-backup-${todayStr()}.json` });
+    document.body.append(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+    toast('백업 파일을 저장했어요.');
+  });
+  $('#s-import').addEventListener('click', () => $('#s-file').click());
+  $('#s-file').addEventListener('change', async (e) => {
+    const f = e.target.files && e.target.files[0]; e.target.value = '';
+    if (!f) return;
+    let b = null;
+    try { b = JSON.parse(await f.text()); } catch { /* 아래에서 안내 */ }
+    if (!b || b.v !== 1 || !b.me || !Array.isArray(b.letters)) return toast('둘만의 우체통 백업 파일이 아니에요.');
+    if (!window.confirm(`백업에 있는 편지 ${b.letters.length}통을 불러올까요?\n지금 있는 편지와 합쳐져요.`)) return;
+    const have = new Set(S.letters.map((l) => `${l.box}:${l.id}`));
+    const ok = (l) => l && typeof l.id === 'string' && (l.box === 'in' || l.box === 'out') && typeof l.title === 'string' && typeof l.body === 'string';
+    let added = 0;
+    b.letters.filter(ok).forEach((l) => { if (!have.has(`${l.box}:${l.id}`)) { S.letters.push(l); added++; } });
+    S.me = { id: String(b.me.id || S.me.id), name: clip(b.me.name || S.me.name, MAX_NAME) };
+    if (b.partner) S.partner = { id: b.partner.id || S.partner.id, name: clip(b.partner.name || S.partner.name, MAX_NAME) };
+    if (isDate(b.startedOn)) { S.startedOn = b.startedOn; S.fdDone = true; }
+    save(); urlCache.clear(); showSettings(); toast(`편지 ${added}통을 불러왔어요.`);
+  });
+  $('#s-reset').addEventListener('click', () => {
+    if (!window.confirm('이 휴대폰에 저장된 편지를 모두 지울까요?\n지운 편지는 되돌릴 수 없어요. (백업 파일이 있으면 다시 불러올 수 있어요)')) return;
+    try { localStorage.removeItem(KEY); } catch { /* 무시 */ }
+    S = null; urlCache.clear();
+    $('#su-me').value = ''; $('#su-partner').value = '';
+    go('#/home');
+  });
+
+  route();
+})();
+  </script>
+</body>
+</html>
